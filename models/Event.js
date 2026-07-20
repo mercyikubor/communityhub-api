@@ -1,33 +1,36 @@
 import mongoose from "mongoose";
 
-const eventSchema = new mongoose.Schema({
-eventName: {
+const eventSchema = new mongoose.Schema(
+  {
+    eventName: {
       type: String,
-      required: true
-},
-eventDescription: {
+      required: true,
+    },
+    eventDescription: {
       type: String,
-      required: true
-},
-eventDate: {
+      required: true,
+    },
+    eventDate: {
       type: Date,
-      required: true
-},
-eventLocation: {
+      required: true,
+    },
+    eventLocation: {
       type: String,
-      required: true     
-},
-eventFlyers: {
-      type: String
-},
-eventStatus: {
+      required: true,
+    },
+    eventFlyers: {
+      type: String,
+    },
+    eventStatus: {
       type: String,
       enum: ["Upcoming", "Ongoing", "Completed", "Cancelled", "Postponed"],
-      default: "Upcoming"
-}},
-{
-    timestamps: true
-});
+      default: "Upcoming",
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
 
 const Event = mongoose.model("Event", eventSchema);
 
